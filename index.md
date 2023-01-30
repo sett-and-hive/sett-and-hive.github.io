@@ -4,5 +4,5 @@ Welcome to Sett and Hive.
 
 ## Performance testing
 
-- [asciize](asciize/dev/bench) conversions
+- [asciize](https://sett-and-hive.github.io/asciize/dev/bench/) conversions
 
