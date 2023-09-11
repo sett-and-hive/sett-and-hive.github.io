@@ -6,3 +6,6 @@ Welcome to Sett and Hive.
 
 - [asciize](asciize/dev/bench) conversions
 
+## Our `sett-and-hive` technology radar
+
+- [Tech Radar](tech-radar/index.html)
