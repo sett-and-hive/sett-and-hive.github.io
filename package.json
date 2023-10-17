@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "tech-radar-generator": "amcintosh/tech-radar-generator"
+  },
+  "keywords": [
+    "tech-radar"
+  ],
+  "scripts": {
+    "build:clean": "rm -rf tech-radar/*",
+    "build:radar": "yarn tech-radar-generator ./tech-radar.json tech-radar"
+  }
+}
+
