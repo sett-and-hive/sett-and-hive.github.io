@@ -1,6 +1,9 @@
 # Building a tech-radar on sett-and-hive github.io
 
 Publishing a site inspired by the ThoughtWorks "build-your-own-radar" tool on GitHub Pages (github.io).
+Specifially using the 
+[Tech Radar Generator](https://github.com/dprgarner/tech-radar-generator)
+by David Garner, which is licensed by the [AGPL 3.0](https://www.gnu.org/licenses/agpl-3.0.en.html) license.
 
 ## Configure Your Radar Data:
 
