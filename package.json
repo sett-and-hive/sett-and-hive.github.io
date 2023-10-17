@@ -1,4 +1,9 @@
 {
+  "name": "sett-and-hive-tech-radar-generator",
+  "version": "0.0.1",
+  "description": "build script for generating a Thoughtworks-like technology radar.",
+  "keywords": "tech-radar",
+  "license": "MIT",
   "dependencies": {
     "tech-radar-generator": "amcintosh/tech-radar-generator"
   },

@@ -53,11 +53,39 @@
       "description": "A set of guidelines and best practices for an awesome engineering team. <a href=\"https://github.com/cisagov/development-guide\">https://github.com/cisagov/development-guide</a>"
     },
     {
+       "name": "cmocka",
+       "quadrant": "languages and frameworks",
+       "ring": "trial",
+       "isNew": true,
+       "description": "A C language unit testing and mocking framework. https://cmocka.org/"
+    },
+    {
       "name": "Product management for internal projects",
       "quadrant": "techniques",
       "ring": "adopt",
       "isNew": false,
       "description": "It’s about applying product-centric working practices within the team."
+    },
+    {
+       "name": "Lightweight architectural decision records",
+       "quadrant": "techniques",
+       "ring": "adopt",
+       "isNew": false,
+       "description": "Record important architectural decisions near the code they apply to with lightweight architectural decision records"
+    },
+    {
+       "name": "mermaid",
+       "quadrant": "tools",
+       "ring": "trial",
+       "isNew": true,
+       "description": "Mermaid is a markup language for diagrams compatible with Markdown."
+    },
+    {
+       "name": "Generative AI in software development",
+       "quadrant": "techniques",
+       "ring": "trial",
+       "isNew": true,
+       "description": "Generative AI, used with care, can enahance software development. As always, smart testing is required."
     },
     {
       "name": "GitHub Action Workflows",

@@ -2,8 +2,7 @@
 
 Publishing a site inspired by the ThoughtWorks "build-your-own-radar" tool on GitHub Pages (github.io).
 Specifially using the 
-[Tech Radar Generator](https://github.com/dprgarner/tech-radar-generator)
-by David Garner, which is licensed by the [AGPL 3.0](https://www.gnu.org/licenses/agpl-3.0.en.html) license.
+Tech Radar Generator `amcintosh/tech-radar-generator`
 
 ## Configure Your Radar Data:
 
@@ -29,7 +28,7 @@ Commit these changes and push them to your GitHub repository:
 
 ```bash
 git commit -m "Add generated radar site"
-git push origin master
+git push
 ```
 
 ## Configure GitHub Pages:
