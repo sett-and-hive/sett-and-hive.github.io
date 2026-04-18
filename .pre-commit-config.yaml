@@ -40,6 +40,13 @@ repos:
       - id: ruff-check
         args: ["--fix"]
       - id: ruff-format
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.23.1
+    hooks:
+      - id: gitleaks
+        pass_filenames: false
+        stages: [pre-push]
+#        args: ["git", "--redact", "--no-banner", "."]
   - repo: local
     hooks:
       - id: pytest
@@ -54,12 +61,12 @@ repos:
         language: system
         pass_filenames: false
         stages: [pre-push]
-      - id: gitleaks
-        name: gitleaks
-        entry: gitleaks git --redact --no-banner .
-        language: system
-        pass_filenames: false
-        stages: [pre-push]
+#      - id: gitleaks
+#        name: gitleaks
+#        entry: gitleaks git --redact --no-banner .
+#        language: system
+#        pass_filenames: false
+#        stages: [pre-push]
       - id: rumdl
         name: rumdl fmt
         entry: uv run --locked rumdl fmt
