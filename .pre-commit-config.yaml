@@ -1,0 +1,91 @@
+default_install_hook_types:
+  - pre-commit
+  - pre-push
+  - post-checkout
+  - post-merge
+  - post-rewrite
+fail_fast: false
+repos:
+  - repo: https://github.com/astral-sh/uv-pre-commit
+    rev: 0397b68f6f88c024f1d2b355a9818779f6336d16
+    hooks:
+      - id: uv-lock
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: 3e8a8703264a2f4a69428a0aa4dcb512790b2c8c
+    hooks:
+      - id: check-added-large-files
+        args: ["--maxkb=512"]
+      - id: check-ast
+      - id: check-builtin-literals
+      - id: check-case-conflict
+      - id: check-docstring-first
+      - id: check-executables-have-shebangs
+      - id: check-illegal-windows-names
+      - id: check-merge-conflict
+      - id: check-json
+      - id: check-toml
+      - id: check-vcs-permalinks
+      - id: check-yaml
+      - id: debug-statements
+      - id: destroyed-symlinks
+      - id: detect-private-key
+      - id: end-of-file-fixer
+      - id: fix-byte-order-marker
+      - id: forbid-new-submodules
+      - id: mixed-line-ending
+      - id: trailing-whitespace
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: 488940d
+    hooks:
+      - id: ruff-check
+        args: ["--fix"]
+      - id: ruff-format
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.23.1
+    hooks:
+      - id: gitleaks
+        pass_filenames: false
+        stages: [pre-push]
+#        args: ["git", "--redact", "--no-banner", "."]
+  - repo: local
+    hooks:
+      - id: pytest
+        name: pytest
+        entry: uv run --locked pytest
+        language: system
+        pass_filenames: false
+        stages: [pre-push]
+      - id: pip-audit
+        name: pip-audit
+        entry: uv run --locked pip-audit
+        language: system
+        pass_filenames: false
+        stages: [pre-push]
+#      - id: gitleaks
+#        name: gitleaks
+#        entry: gitleaks git --redact --no-banner .
+#        language: system
+#        pass_filenames: false
+#        stages: [pre-push]
+      - id: rumdl
+        name: rumdl fmt
+        entry: uv run --locked rumdl fmt
+        language: system
+        files: \.md$
+      - id: ty
+        name: ty check
+        entry: uv run --locked ty check
+        language: system
+        pass_filenames: false
+        stages: [pre-push]
+      - id: pre-commit-validate
+        name: prek validate
+        entry: uv run --locked prek validate-config .pre-commit-config.yaml
+        language: system
+        pass_filenames: false
+      - id: cosmic-ray
+        name: cosmic-ray baseline
+        entry: uv run --locked cosmic-ray init
+        language: system
+        pass_filenames: false
+        stages: [manual]

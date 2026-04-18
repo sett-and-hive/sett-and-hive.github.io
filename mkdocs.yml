@@ -1,0 +1,38 @@
+site_name: "Sett and Hive Radar Engineering Docs"
+site_url: "https://sett-and-hive.github.io/"
+repo_url: "https://github.com/sett-and-hive/sett-and-hive.github.io"
+site_dir: "site"
+theme:
+  name: material
+  features:
+    - content.code.copy
+    - navigation.indexes
+    - navigation.instant
+    - navigation.sections
+    - search.suggest
+markdown_extensions:
+  - admonition
+  - attr_list
+  - footnotes
+  - md_in_html
+  - pymdownx.details
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+nav:
+  - Home: index.md
+  - Delivery:
+      - Definition of Done: definition-of-done.md
+      - Threat Model: threat-model.md
+  - Architecture:
+      - ADRs:
+          - Python Radar Migration Foundation: adrs/0001-python-radar-migration-foundation.md
+          - Dependency Update and Runner Security: adrs/0002-dependency-update-and-runner-hardening.md
+          - Renovate Policy: adrs/0003-renovate-dependency-governance.md
+          - Pre-commit Policy: adrs/0004-pre-commit-enforcement.md
+          - Harden-Runner Policy: adrs/0005-harden-runner-rollout.md
+          - Thin Makefile Command Surface: adrs/0006-thin-makefile-command-surface.md
+          - Use prek as the Hook Runner: adrs/0007-use-prek-as-hook-runner.md
+          - Use Astral ty for Type Checking: adrs/0008-use-astral-ty-for-type-checking.md
+  - Design:
+      - Phase 00 Foundation: designs/phase-00-foundation.md

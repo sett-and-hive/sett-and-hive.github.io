@@ -1,0 +1,56 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    ":dependencyDashboard"
+  ],
+  "dependencyDashboardOSVVulnerabilitySummary": "all",
+  "osvVulnerabilityAlerts": true,
+  "minimumReleaseAge": "14 days",
+  "internalChecksFilter": "strict",
+  "separateMajorMinor": true,
+  "separateMinorPatch": true,
+  "labels": [
+    "dependencies"
+  ],
+  "packageRules": [
+    {
+      "description": "Bundle routine patch updates to reduce noise",
+      "matchUpdateTypes": ["patch"],
+      "groupName": "all patch dependencies",
+      "groupSlug": "all-patch-dependencies"
+    },
+    {
+      "description": "Bundle routine minor updates to reduce noise",
+      "matchUpdateTypes": ["minor"],
+      "groupName": "all minor dependencies",
+      "groupSlug": "all-minor-dependencies"
+    },
+    {
+      "description": "All major updates require explicit dashboard approval",
+      "matchUpdateTypes": ["major"],
+      "dependencyDashboardApproval": true,
+      "labels": ["dependencies", "major-update", "manual-approval"]
+    },
+    {
+      "description": "Dependencies with serious incidents in the last year require explicit approval",
+      "matchPackageNames": [
+        "reviewdog/action-setup",
+        "reviewdog/action-shellcheck",
+        "tj-actions/changed-files"
+      ],
+      "dependencyDashboardApproval": true,
+      "labels": ["dependencies", "high-risk-dependency", "manual-approval"]
+    }
+  ],
+  "vulnerabilityAlerts": {
+    "enabled": true,
+    "minimumReleaseAge": null,
+    "dependencyDashboardApproval": false,
+    "prCreation": "immediate",
+    "automerge": true,
+    "platformAutomerge": true,
+    "vulnerabilityFixStrategy": "lowest",
+    "labels": ["dependencies", "security-update"]
+  }
+}
