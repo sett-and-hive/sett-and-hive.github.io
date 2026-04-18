@@ -6,7 +6,7 @@
     {
       "name": "OWASP DefectDojo",
       "quadrant": "tools",
-      "ring": "trial",
+      "ring": "hold",
       "isNew": true,
       "description": "<p>An OSS vulnerability management tool.</p><p>Performance issues preclude a move up to adopt.</p>"
     },
@@ -20,7 +20,7 @@
     {
       "name": "Ruff",
       "quadrant": "tools",
-      "ring": "trial",
+      "ring": "adopt",
       "isNew": true,
       "description": "Ruff is a blazing-fast new linter for Python that can replace several other linters like Flake8."
     },
@@ -34,7 +34,7 @@
     {
       "name": "Vite",
       "quadrant": "tools",
-      "ring": "trial",
+      "ring": "adopt",
       "isNew": true,
       "description": "Vite is a *Script build tool that is fast and is continuing to mature."
     },
@@ -76,16 +76,16 @@
     {
        "name": "mermaid",
        "quadrant": "tools",
-       "ring": "trial",
+       "ring": "adopt",
        "isNew": true,
        "description": "Mermaid is a markup language for diagrams compatible with Markdown."
     },
     {
-       "name": "Generative AI in software development",
+       "name": "Agentic Generative AI in software development",
        "quadrant": "techniques",
-       "ring": "trial",
+       "ring": "adopt",
        "isNew": true,
-       "description": "Generative AI, used with care, can enahance software development. As always, smart testing is required."
+       "description": "Agentic Generative AI, used with care, can enhance software development. As always, smart testing is required."
     },
     {
       "name": "GitHub Action Workflows",
