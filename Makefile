@@ -1,4 +1,4 @@
-.PHONY: help lock sync fmt lint markdown-lint typecheck test docs serve-docs audit prek check
+.PHONY: help lock sync fmt lint markdown-lint typecheck test mutation-test docs serve-docs audit prek check
 
 help:
 	@printf '%s\n' \
@@ -10,6 +10,7 @@ help:
 		'  make markdown-lint Run Markdown lint checks with rumdl' \
 		'  make typecheck   Run ty type checking' \
 		'  make test        Run pytest with coverage gates' \
+		'  make mutation-test Run mutation testing with cosmic-ray' \
 		'  make docs        Build the docs site in strict mode' \
 		'  make serve-docs  Serve the docs site locally' \
 		'  make audit       Run pip-audit against the locked environment' \
@@ -37,6 +38,9 @@ typecheck:
 
 test:
 	uv run --locked pytest
+
+mutation-test:
+	uv run --locked python scripts/mutation_test.py --base origin/main
 
 docs:
 	uv run --locked mkdocs build --strict
