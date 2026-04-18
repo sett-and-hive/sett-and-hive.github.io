@@ -35,7 +35,7 @@ def test_blip_rejects_unknown_fields():
         "name": "b1",
         "quadrant": "q1",
         "ring": "r1",
-        "is_new": True,
+        "unknown_field": True,
         "description": "desc",
     }
     with pytest.raises(ValidationError, match="Extra inputs are not permitted"):
