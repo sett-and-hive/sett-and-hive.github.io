@@ -12,3 +12,5 @@ Engineering governance for that migration lives in `docs/`:
 - Threat model
 - ADRs
 - phase design documents
+
+For developer setup and contribution guidelines, see [CONTRIBUTING.md](CONTRIBUTING.md).

@@ -10,9 +10,14 @@ Edit `tech-radar.json` to your requirements.
 
 ## Generate the Tech Radar Site
 
+The project has migrated to a Python-based generator. Follow the instructions in [CONTRIBUTING.md](CONTRIBUTING.md) to set up your environment.
+
+To build the radar site:
+
 ```bash
-yarn build:clean
-yarn build:radar
+# Note: The specific build command is being implemented.
+# For now, you can run the check suite:
+make check
 ```
 
 ## Push to GitHub
