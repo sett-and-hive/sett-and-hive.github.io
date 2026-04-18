@@ -40,9 +40,7 @@ test:
 	uv run --locked pytest
 
 mutation-test:
-	uv run --locked cosmic-ray init cosmic-ray.toml cosmic-ray.sqlite
-	uv run --locked cosmic-ray run cosmic-ray.toml cosmic-ray.sqlite
-	uv run --locked cosmic-ray summary cosmic-ray.sqlite
+	uv run --locked python scripts/mutation_test.py --base origin/main
 
 docs:
 	uv run --locked mkdocs build --strict
