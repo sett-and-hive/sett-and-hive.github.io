@@ -21,9 +21,11 @@ def get_changed_python_files(base_branch="origin/main"):
             capture_output=True,
             text=True,
         )
-    except subprocess.CalledProcessError:
+    except subprocess.CalledProcessError as e:
         print(f"Error: Could not get diff from {base_branch}")
-        return []
+        if e.stderr:
+            print(e.stderr)
+        raise
     else:
         return [f for f in result.stdout.splitlines() if f.endswith(".py")]
 
