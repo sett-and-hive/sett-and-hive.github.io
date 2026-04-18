@@ -29,14 +29,17 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8
 
+      - name: Read Python version
+        run: echo "PYTHON_VERSION=$(head -n 1 .python-version)" >> "$GITHUB_ENV"
+
       - name: Install uv
         uses: astral-sh/setup-uv@3259c6206f993105e3a61b142c2d97bf4b9ef83d
         with:
           version: ${{ env.UV_VERSION }}
           enable-cache: true
 
-      - name: Install Python 3.14
-        run: uv python install 3.14
+      - name: Install Python
+        run: uv python install "${{ env.PYTHON_VERSION }}"
 
       - name: Sync locked environment
         run: uv sync --locked --group dev
