@@ -1,4 +1,5 @@
 import json
+from typing import Any
 
 import pytest
 from pydantic import ValidationError
@@ -8,7 +9,7 @@ from sett_and_hive_radar.paths import project_root
 
 
 def test_valid_radar():
-    data = {
+    data: dict[str, Any] = {
         "title": "Test Radar",
         "quadrants": ["q1"],
         "rings": ["r1"],
@@ -16,7 +17,7 @@ def test_valid_radar():
             {"name": "b1", "quadrant": "q1", "ring": "r1", "isNew": True, "description": "desc"}
         ],
     }
-    radar = Radar(**data)
+    radar = Radar.model_validate(data)
     assert radar.title == "Test Radar"
     assert len(radar.blips) == 1
     assert radar.blips[0].name == "b1"
@@ -24,13 +25,13 @@ def test_valid_radar():
 
 
 def test_blip_default_is_new():
-    data = {"name": "b1", "quadrant": "q1", "ring": "r1", "description": "desc"}
-    blip = Blip(**data)
+    data: dict[str, Any] = {"name": "b1", "quadrant": "q1", "ring": "r1", "description": "desc"}
+    blip = Blip.model_validate(data)
     assert blip.is_new is False
 
 
 def test_invalid_quadrant():
-    data = {
+    data: dict[str, Any] = {
         "title": "Test Radar",
         "quadrants": ["q1"],
         "rings": ["r1"],
@@ -45,11 +46,11 @@ def test_invalid_quadrant():
         ],
     }
     with pytest.raises(ValidationError, match="invalid quadrant 'invalid-q'"):
-        Radar(**data)
+        Radar.model_validate(data)
 
 
 def test_invalid_ring():
-    data = {
+    data: dict[str, Any] = {
         "title": "Test Radar",
         "quadrants": ["q1"],
         "rings": ["r1"],
@@ -64,7 +65,7 @@ def test_invalid_ring():
         ],
     }
     with pytest.raises(ValidationError, match="invalid ring 'invalid-r'"):
-        Radar(**data)
+        Radar.model_validate(data)
 
 
 def test_real_radar_json():
@@ -73,6 +74,6 @@ def test_real_radar_json():
         data = json.load(f)
 
     # Should not raise any validation error
-    radar = Radar(**data)
+    radar = Radar.model_validate(data)
     assert radar.title == "Sett-and-Hive Radar"
     assert len(radar.blips) > 0
