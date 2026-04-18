@@ -26,4 +26,7 @@ affecting Python source code.
   justified if they represent unreachable or irrelevant code.
 - Mutation testing can be slow, so it is recommended to run it on a scoped
   basis (e.g., against specific modules) during development.
-- `cosmic-ray` configuration is maintained in `pyproject.toml`.
+- `cosmic-ray` runs are configured via a transient TOML file generated for
+  each run by the mutation test helper script, which can scope the target
+  module and set execution options such as the test command, timeout, and
+  distributor.
