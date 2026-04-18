@@ -30,7 +30,7 @@ This project is migrating to a Python-based toolchain using `uv`, `ruff`, `ty`, 
     We use `prek` as our hook runner. Ensure it is installed and configured:
 
     ```bash
-    uv run prek install
+    uv run --locked prek install
     ```
 
 ## Important Make Targets
