@@ -80,6 +80,18 @@ def test_invalid_ring():
         Radar.model_validate(data)
 
 
+def test_radar_rejects_unknown_fields():
+    data: dict[str, Any] = {
+        "title": "Test Radar",
+        "quadrants": ["q1"],
+        "rings": ["r1"],
+        "blips": [],
+        "unexpected": "value",
+    }
+    with pytest.raises(ValidationError, match="Extra inputs are not permitted"):
+        Radar.model_validate(data)
+
+
 def test_real_radar_json():
     json_path = project_root() / "tech-radar.json"
     with json_path.open() as f:
