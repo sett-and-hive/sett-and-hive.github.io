@@ -42,6 +42,7 @@ Use `make` to run common development tasks:
 - `make lint`: Run Ruff checks for Python linting.
 - `make typecheck`: Run `ty` for type checking.
 - `make test`: Run `pytest` with coverage requirements.
+- `make mutation-test`: Run mutation testing with `cosmic-ray`.
 - `make prek`: Run all configured pre-commit and pre-push hooks over all files.
 - `make check`: Run the full verification suite (lint, typecheck, tests, docs, audit).
 - `make serve-docs`: Serve the documentation site locally.
@@ -52,3 +53,8 @@ Use `make` to run common development tasks:
 2. **Verify changes**: Run `make check` to ensure your changes meet the project's quality standards.
 3. **Type Safety**: We use `ty` for type checking. Ensure all new code is properly typed.
 4. **Testing**: All new features and bug fixes must be accompanied by tests. We aim for 100% coverage.
+5. **Mutation Testing**: We use `cosmic-ray` for mutation testing. Per the [Definition of Done](docs/definition-of-done.md) and [ADR 0009](docs/adrs/0009-use-cosmic-ray-for-mutation-testing.md), you must run mutation testing for your changes and ensure no mutants survive without justification.
+
+    ```bash
+    make mutation-test
+    ```

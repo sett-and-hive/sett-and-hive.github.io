@@ -10,6 +10,7 @@ help:
 		'  make markdown-lint Run Markdown lint checks with rumdl' \
 		'  make typecheck   Run ty type checking' \
 		'  make test        Run pytest with coverage gates' \
+		'  make mutation-test Run mutation testing with cosmic-ray' \
 		'  make docs        Build the docs site in strict mode' \
 		'  make serve-docs  Serve the docs site locally' \
 		'  make audit       Run pip-audit against the locked environment' \
@@ -37,6 +38,11 @@ typecheck:
 
 test:
 	uv run --locked pytest
+
+mutation-test:
+	uv run --locked cosmic-ray init cosmic-ray.toml cosmic-ray.sqlite
+	uv run --locked cosmic-ray run cosmic-ray.toml cosmic-ray.sqlite
+	uv run --locked cosmic-ray summary cosmic-ray.sqlite
 
 docs:
 	uv run --locked mkdocs build --strict

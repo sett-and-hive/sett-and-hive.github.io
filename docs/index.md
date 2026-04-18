@@ -15,6 +15,7 @@ The governing documents live here:
 - [ADR 0006: Thin Makefile command surface](adrs/0006-thin-makefile-command-surface.md)
 - [ADR 0007: Use prek as the hook runner](adrs/0007-use-prek-as-hook-runner.md)
 - [ADR 0008: Use Astral ty for type checking](adrs/0008-use-astral-ty-for-type-checking.md)
+- [ADR 0009: Use Cosmic Ray for mutation testing](adrs/0009-use-cosmic-ray-for-mutation-testing.md)
 - [Phase 00 design](designs/phase-00-foundation.md)
 
 The current delivery strategy is:
