@@ -1,0 +1,134 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "sett-and-hive-radar"
+version = "0.1.0"
+description = "Python generator for the Sett and Hive technology radar static site."
+readme = "README.md"
+requires-python = "==3.14.*"
+license = { text = "MIT" }
+authors = [
+  { name = "Sett and Hive" },
+]
+dependencies = []
+
+[dependency-groups]
+site = [
+  "jinja2",
+  "pydantic",
+]
+lint = [
+  "ruff",
+  "rumdl",
+  "ty",
+]
+test = [
+  "coverage[toml]",
+  "pytest",
+  "pytest-cov",
+  "pytest-xdist",
+]
+docs = [
+  "mkdocs",
+  "mkdocs-material",
+]
+security = [
+  "pip-audit",
+]
+quality = [
+  "cosmic-ray",
+  "prek",
+]
+dev = [
+  { include-group = "site" },
+  { include-group = "lint" },
+  { include-group = "test" },
+  { include-group = "docs" },
+  { include-group = "security" },
+  { include-group = "quality" },
+]
+
+[tool.uv]
+default-groups = ["dev"]
+
+[tool.ruff]
+target-version = "py314"
+line-length = 100
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = [
+  "A",
+  "ARG",
+  "B",
+  "C4",
+  "COM",
+  "E",
+  "EM",
+  "ERA",
+  "F",
+  "FA",
+  "I",
+  "ICN",
+  "ISC",
+  "N",
+  "PERF",
+  "PIE",
+  "PT",
+  "PTH",
+  "RET",
+  "RSE",
+  "RUF",
+  "SIM",
+  "TRY",
+  "UP",
+  "W",
+]
+ignore = [
+  "COM812",
+]
+
+[tool.ruff.format]
+docstring-code-format = true
+quote-style = "double"
+
+[tool.pytest.ini_options]
+addopts = [
+  "--cov=sett_and_hive_radar",
+  "--cov-branch",
+  "--cov-report=term-missing:skip-covered",
+  "--cov-fail-under=100",
+  "-ra",
+]
+testpaths = ["tests"]
+
+[tool.coverage.run]
+branch = true
+source = ["sett_and_hive_radar"]
+
+[tool.coverage.report]
+fail_under = 100
+show_missing = true
+skip_covered = true
+
+[tool.rumdl]
+line-length = 100
+flavor = "mkdocs"
+
+[tool.ty.environment]
+python-version = "3.14"
+root = ["./src", "./tests"]
+
+[tool.ty.src]
+include = ["src", "tests"]
+exclude = [".venv", "site", "tech-radar"]
+
+[tool.ty.terminal]
+error-on-warning = true
+output-format = "concise"
+
+[tool.cosmic-ray]
+module-path = "src"
+python-version = "3.14"
