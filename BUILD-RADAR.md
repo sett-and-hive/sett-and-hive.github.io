@@ -1,7 +1,7 @@
 # Building a tech-radar on sett-and-hive github.io
 
 Publishing a site inspired by the ThoughtWorks "build-your-own-radar" tool on GitHub Pages (github.io).
-Specifially using the
+Specifically using the
 Tech Radar Generator `amcintosh/tech-radar-generator`
 
 ## Configure Your Radar Data
