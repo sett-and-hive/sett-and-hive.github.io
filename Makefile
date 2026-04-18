@@ -1,4 +1,4 @@
-.PHONY: help lock sync fmt lint markdown-lint typecheck test docs serve-docs audit prek check
+.PHONY: help lock sync fmt lint markdown-lint typecheck test mutation-test docs serve-docs audit prek check
 
 help:
 	@printf '%s\n' \

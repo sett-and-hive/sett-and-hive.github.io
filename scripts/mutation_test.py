@@ -43,6 +43,14 @@ def file_to_module(file_path):
     return ".".join(module_parts)
 
 
+def file_to_module_path(file_path):
+    """Convert a changed file path to a valid cosmic-ray module-path target."""
+    path = Path(file_path)
+    if path.name == "__init__.py":
+        return str(path.parent)
+    return str(path)
+
+
 def main():
     parser = argparse.ArgumentParser(description="Run scoped mutation testing")
     parser.add_argument(
@@ -58,6 +66,7 @@ def main():
         sys.exit(0)
 
     modules = [file_to_module(f) for f in changed_files]
+    module_paths = [file_to_module_path(f) for f in changed_files]
     print(f"Changed modules: {', '.join(modules)}")
 
     with tempfile.TemporaryDirectory() as tmpdir:
@@ -75,13 +84,12 @@ timeout = 10.0
 [cosmic-ray.distributor]
 name = "local"
 """
-        for module in modules:
+        for module, module_path in zip(modules, module_paths, strict=True):
             print(f"\n--- Testing module: {module} ---")
 
-            module_file = f"src/{module.replace('.', '/')}.py"
             scoped_config = base_config.replace(
                 'module-path = "src/sett_and_hive_radar"',
-                f'module-path = "{module_file}"',
+                f'module-path = "{module_path}"',
             )
             config_path.write_text(scoped_config)
 

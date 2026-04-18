@@ -1,7 +1,9 @@
-from pydantic import BaseModel, Field, model_validator
+from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 
 class Blip(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
     name: str
     quadrant: str
     ring: str
@@ -10,6 +12,8 @@ class Blip(BaseModel):
 
 
 class Radar(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
     title: str
     quadrants: list[str]
     rings: list[str]

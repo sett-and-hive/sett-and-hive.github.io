@@ -30,6 +30,18 @@ def test_blip_default_is_new():
     assert blip.is_new is False
 
 
+def test_blip_rejects_unknown_fields():
+    data: dict[str, Any] = {
+        "name": "b1",
+        "quadrant": "q1",
+        "ring": "r1",
+        "is_new": True,
+        "description": "desc",
+    }
+    with pytest.raises(ValidationError, match="Extra inputs are not permitted"):
+        Blip.model_validate(data)
+
+
 def test_invalid_quadrant():
     data: dict[str, Any] = {
         "title": "Test Radar",
